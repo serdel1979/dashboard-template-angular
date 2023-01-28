@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-login',
@@ -6,12 +7,16 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  captcha: string = "";
-  email: string = "sdlbsso@gmail.com";
+  
 
-  resolved(captchaResponse: string){
-    this.captcha = captchaResponse;
-    console.log(`Captcha resuelto con: ${this.captcha}`);
+  constructor(
+    private recaptchaV3Service: ReCaptchaV3Service,
+  ) {
+  }
+
+  public executeImportantAction(): void {
+    this.recaptchaV3Service.execute('submit')
+    .subscribe(console.log);
   }
 
 

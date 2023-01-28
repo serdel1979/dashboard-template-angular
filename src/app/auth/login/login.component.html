@@ -34,10 +34,4 @@
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
-<div [hidden]="captcha">
- <p>Hola, posible umano</p>
- <re-captcha (resolved)="resolved($event)" siteKey="6LeA3DEkAAAAAMNPs2KtsZwnbzaMflR7YLJC0tJZ"></re-captcha>
-</div>
-<div [hidden]="!captcha">
-    <p>{{ email }}</p>
-</div>
+<button (click)="executeImportantAction()">Important action</button>
