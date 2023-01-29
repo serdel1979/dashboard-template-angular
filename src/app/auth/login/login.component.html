@@ -22,7 +22,10 @@
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                         </div>
-                        <button [disabled]="miFormulario.invalid" type="submit" class="btn btn-primary">Iniciar</button>
+                        <button [disabled]="miFormulario.invalid || loading" type="submit" class="btn btn-primary">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            Iniciar
+                        </button>
 
                         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{this.error}}</div>
                     </div>

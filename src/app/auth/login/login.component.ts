@@ -15,7 +15,7 @@ export class LoginComponent {
   error = '';
   user!: AuthResponse;
 
-  
+  loading: boolean = false;
 
   miFormulario: FormGroup = this.fb.group({
     Usuario: ['', [Validators.required]],
@@ -45,6 +45,7 @@ export class LoginComponent {
   }
 
   login(){
+    this.loading = true;
     const {Usuario, Password} = this.miFormulario.value;
 
     this.authService.login(Usuario,Password)
@@ -60,7 +61,8 @@ export class LoginComponent {
           this.error = err.error;
       }else{
         this.error = "Problema de conexión"
-      }
+      };
+      this.loading = false;
     }
     )
  }
