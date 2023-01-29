@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthServiceService } from '../../services/auth-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthServiceService } from '../../services/auth-service.service';
   ]
 })
 export class SidebarComponent {
-  constructor(private authService: AuthServiceService){
+  constructor(private authService: AuthServiceService, private router: Router){
 
   }
 
@@ -16,6 +17,20 @@ export class SidebarComponent {
 
   logout(){
     this.authService.logout();
+  }
+
+  solicitudes(){
+    this.router.navigate(['/dashboard']);
+  }
+
+  historial(){
+    this.router.navigate(['/historial']);
+  }
+  usuarios(){
+    this.router.navigate(['/usuarios']);
+  }
+  equipos(){
+    this.router.navigate(['/equipos']);
   }
 
 }

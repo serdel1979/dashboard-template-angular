@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { AuthServiceService } from '../../services/auth-service.service';
@@ -27,7 +27,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthServiceService
-  ) {}
+  ) { }
 
 
 
@@ -36,37 +36,39 @@ export class LoginComponent {
 
   public iniciarSesion(): void {
     this.recaptchaV3Service.execute('submit')
-    .subscribe({
-      next: x=>{
-        this.login();
-      },
-      error: err=> console.error("error de captcha")                    
-    });
+      .subscribe({
+        next: x => {
+          this.login();
+        },
+        error: err => console.error("error de captcha")
+      });
   }
 
-  login(){
+  login() {
     this.loading = true;
-    const {Usuario, Password} = this.miFormulario.value;
+    const { Usuario, Password } = this.miFormulario.value;
 
-    this.authService.login(Usuario,Password)
-    .subscribe(data=>{
-      this.user = data;
-      if (this.user){
-        this.router.navigate(['/dashboard']);
-      }else{
-        this.error = "Comprobar los datos ingresados"
-      }
-    },(err: any)=>{
-      if(err.status == 400){
+    this.authService.login(Usuario, Password)
+      .subscribe(data => {
+        this.user = data;
+        if (this.user) {
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.error = "Comprobar los datos ingresados"
+        }
+      }, (err: any) => {
+        if (err.status == 400) {
           this.error = err.error;
-      }else{
-        this.error = "Problema de conexión"
-      };
-      this.loading = false;
-    }
-    )
- }
+        } else {
+          this.error = "Problema de conexión"
+        };
+        this.loading = false;
+      }
+      )
+  }
 
-
+registrar(){
+  this.router.navigate(['/register']);
+}
 
 }

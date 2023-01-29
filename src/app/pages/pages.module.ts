@@ -6,6 +6,9 @@ import { Grafica1Component } from './grafica1/grafica1.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { EquiposComponent } from './equipos/equipos.component';
+import { HistorialComponent } from './historial/historial.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 
@@ -14,7 +17,10 @@ import { AppRoutingModule } from '../app-routing.module';
     DashboardComponent,
     ProgressComponent,
     Grafica1Component,
-    PagesComponent
+    PagesComponent,
+    EquiposComponent,
+    HistorialComponent,
+    UsuariosComponent
   ],
   imports: [
     CommonModule,
