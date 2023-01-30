@@ -54,7 +54,7 @@ export class RegisterComponent {
 
     const { Usuario, Email, Password } = this.miFormulario.value;
     this.authService.registrar(Usuario, Email, Password)
-      .subscribe(data => {
+      .subscribe(() => {
         this.msgok = "Solicitud enviada";
         this.loading = false;
       }, (err: ErrorResponse) => {
@@ -63,7 +63,6 @@ export class RegisterComponent {
         // } else {
         //   this.msg = `${err.status.description}`
         // };
-        console.log(err);
         this.msg = err.error[0].description;
         this.loading = false;
       }

@@ -3,8 +3,6 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { AuthServiceService } from '../../services/auth-service.service';
-import { AuthResponse } from '../interfaces/usuario.interface';
-import { catchError, first, map } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +11,6 @@ import { catchError, first, map } from 'rxjs';
 export class LoginComponent {
 
   error = '';
-  user!: AuthResponse;
 
   loading: boolean = false;
 
@@ -49,9 +46,8 @@ export class LoginComponent {
     const { Usuario, Password } = this.miFormulario.value;
 
     this.authService.login(Usuario, Password)
-      .subscribe(data => {
-        this.user = data;
-        if (this.user) {
+      .subscribe((resp) => {
+        if (resp) {
           this.router.navigate(['/dashboard']);
         } else {
           this.error = "Comprobar los datos ingresados"
@@ -60,7 +56,8 @@ export class LoginComponent {
         if (err.status == 400) {
           this.error = err.error;
         } else {
-          this.error = "Problema de conexión"
+          console.log(err);
+          this.error = "No se puede iniciar sesión ahora"
         };
         this.loading = false;
       }

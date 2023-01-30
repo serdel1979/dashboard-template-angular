@@ -13,17 +13,13 @@ export class AuthServiceService {
 
   private baseUrl: string = environment.baseUrl;
 
-  private _usuario!: AuthResponse;
-
-  private userSubject!: BehaviorSubject<AuthResponse>;
   public user!: Observable<AuthResponse>;
+  private userSubject!: BehaviorSubject<AuthResponse>;
 
-  get usuario(){
-    return this._usuario;
+  constructor(private http: HttpClient,  private router: Router) { 
+    this.userSubject = new BehaviorSubject<AuthResponse>(JSON.parse(localStorage.getItem('user') || "[]"));
+    this.user = this.userSubject.asObservable();
   }
-
-
-  constructor(private http: HttpClient,  private router: Router) { }
 
 
 
@@ -38,7 +34,7 @@ export class AuthServiceService {
     .pipe(
       map( resp =>{
         localStorage.setItem('user', JSON.stringify(resp));
-        this._usuario = resp;
+        this.userSubject.next(resp);
         return resp;
       })
     )
@@ -60,8 +56,13 @@ export class AuthServiceService {
     )
   }
 
+
+  isAuthenticated():boolean{
+    return localStorage.getItem('user') != null;
+  }
+
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
