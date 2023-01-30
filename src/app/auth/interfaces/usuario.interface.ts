@@ -12,3 +12,9 @@ export interface Usuario {
     Usuario: string;
     Password?: string;
 }
+
+export interface RegistroUsuario {
+    Usuario: string;
+    Email: string;
+    Password?: string;
+}
