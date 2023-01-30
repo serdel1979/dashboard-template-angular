@@ -56,8 +56,7 @@ export class LoginComponent {
         if (err.status == 400) {
           this.error = err.error;
         } else {
-          console.log(err);
-          this.error = "No se puede iniciar sesión ahora"
+          this.error = "No se puede iniciar sesión"
         };
         this.loading = false;
       }

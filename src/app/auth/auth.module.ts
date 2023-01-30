@@ -24,6 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     RecaptchaV3Module
   ],
-  providers: [{ provide: RECAPTCHA_V3_SITE_KEY, useValue: "6LcI1DEkAAAAAKrBmOaHxQxCxjQluLlzl_dl48Op"}]
+  providers: [{ provide: RECAPTCHA_V3_SITE_KEY, useValue: "6Le9mjwkAAAAAD2UyI7tsp9I62f_9di2VtV6QBmM"}]
 })
 export class AuthModule { }
