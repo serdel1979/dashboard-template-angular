@@ -27,7 +27,7 @@
                             Iniciar
                         </button>
 
-                        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{this.error}}</div>
+                        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{this.error | json}}</div>
                     </div>
                 </div>
             </form>
