@@ -28,4 +28,8 @@ export class HeaderComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
+  isAdmin():boolean{
+    return this.authService.isAdmin();
+  }
+
 }

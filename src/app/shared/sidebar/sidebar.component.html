@@ -9,12 +9,14 @@
             <ul id="sidebarnav">
                 <li> <a class="waves-effect waves-dark" (click)="solicitudes()" aria-expanded="false"><i
                             class="mdi mdi-application"></i><span class="hide-menu">Solicitudes</span></a></li>
-                <li> <a class="waves-effect waves-dark" (click)="usuarios()" aria-expanded="false"><i
-                            class="mdi mdi-account-multiple"></i><span class="hide-menu">Usuarios</span></a></li>
-                <li> <a class="waves-effect waves-dark" (click)="equipos()" aria-expanded="false"><i
-                            class="mdi mdi-desktop-mac"></i><span class="hide-menu">Equipos</span></a></li>
-                <li> <a class="waves-effect waves-dark" (click)="historial()" aria-expanded="false"><i
+                <li *ngIf="isAdmin()"> <a class="waves-effect waves-dark" (click)="historial()" aria-expanded="false"><i
                             class="mdi mdi-history"></i><span class="hide-menu">Historial</span></a></li>
+                <li class="nav-devider"></li>
+                <li *ngIf="isAdmin()"> <a class="waves-effect waves-dark" (click)="usuarios()" aria-expanded="false"><i
+                            class="mdi mdi-account-multiple"></i><span class="hide-menu">Usuarios</span></a></li>
+                <li *ngIf="isAdmin()"> <a class="waves-effect waves-dark" (click)="equipos()" aria-expanded="false"><i
+                            class="mdi mdi-desktop-mac"></i><span class="hide-menu">Equipos</span></a></li>
+
 
                 <li> <a class="waves-effect waves-dark" (click)="logout()" aria-expanded="false"><i
                             class="mdi mdi-logout"></i><span class="hide-menu">Salir</span></a></li>

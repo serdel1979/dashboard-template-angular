@@ -33,4 +33,9 @@ export class SidebarComponent {
     this.router.navigate(['/equipos']);
   }
 
+  isAdmin():boolean{
+    return this.authService.isAdmin();
+  }
+
+
 }

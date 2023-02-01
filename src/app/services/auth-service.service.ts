@@ -58,7 +58,8 @@ export class AuthServiceService {
 
 
   isAuthenticated():boolean{
-    return localStorage.getItem('user') != null;
+     const { userName } = JSON.parse(localStorage.getItem('user') || "[]");
+     return userName != null;
   }
 
   logout(){
@@ -66,6 +67,13 @@ export class AuthServiceService {
     this.router.navigate(['/login']);
   }
 
-
+  
+  isAdmin():boolean{
+    const { claims } = JSON.parse(localStorage.getItem('user') || "[]");
+    if (claims){
+      return claims != 0;
+    }
+    return false;
+  }
 
 }

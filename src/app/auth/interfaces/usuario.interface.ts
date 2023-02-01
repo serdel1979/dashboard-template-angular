@@ -3,6 +3,7 @@ export interface AuthResponse {
     Id?: string;
     Usuario?: string;
     Email?: string;
+    Claims: boolean;
     Token?: string;
     Expiracion?:string;
 }
