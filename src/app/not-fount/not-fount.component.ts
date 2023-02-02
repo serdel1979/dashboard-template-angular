@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   ]
 })
 export class NotFountComponent {
+  
+  year = new Date().getFullYear();
 
 }
