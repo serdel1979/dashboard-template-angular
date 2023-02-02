@@ -52,12 +52,13 @@ export class LoginComponent {
         } else {
           this.error = "Comprobar los datos ingresados"
         }
-      }, (err: any) => {
+      }, (err) => {
         if (err.status == 400) {
-          this.error = err.error;
+          this.error = err;
         } else {
           //this.error = "No se puede iniciar sesión";
-          this.error = err.error;
+          this.error = err
+//          JSON.stringify(err, ["message", "arguments", "type", "name"])
         };
         this.loading = false;
       }

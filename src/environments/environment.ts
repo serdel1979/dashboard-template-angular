@@ -4,8 +4,7 @@
 
 export const environment = {
     production: false,
-    //baseUrl: 'http://localhost:5000/api'
-    baseUrl: 'https://localhost:7147/api'
+    baseUrl: 'https://192.168.0.104:7147/api', //https://localhost:7147/api
 };
   //https://login-dashboard-node-production.up.railway.app/api
 /*
