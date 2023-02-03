@@ -5,8 +5,7 @@ import { AuthResponse } from '../../auth/interfaces/usuario.interface';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class HeaderComponent implements OnInit {
 

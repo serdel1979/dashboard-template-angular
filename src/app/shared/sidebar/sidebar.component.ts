@@ -24,13 +24,13 @@ export class SidebarComponent {
   }
 
   historial(){
-    this.router.navigate(['/historial']);
+    this.router.navigate(['/dashboard/historial']);
   }
   usuarios(){
-    this.router.navigate(['/usuarios']);
+    this.router.navigate(['/dashboard/usuarios']);
   }
   equipos(){
-    this.router.navigate(['/equipos']);
+    this.router.navigate(['/dashboard/equipos']);
   }
 
   isAdmin():boolean{
